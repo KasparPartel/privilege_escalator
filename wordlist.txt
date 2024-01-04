@@ -1,2 +1,0 @@
-life.c
-template.html

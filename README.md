@@ -44,5 +44,49 @@ We have this line in the output:
 ```
 When we access this address in our browser, we can see that it contains all of the files, that are also in ftp server.
 
-8. Now it's time for our reverse shell.
+> Before this step, be sure that whatever port we use for our reverse shell (1234 in this instance) is allowed through our firewall.
 
+8. Now it's time for our reverse shell.
+We upload our reverse shell and shell.py through ftp.
+Then we connect to 192.168.1.2/files through our browser client.
+We should see that our uploaded reverse shell is listed there.
+We click on it and browser should hang.
+
+9. We connect to the port with netcat.
+```bash
+   nc -v 192.168.1.2 1234
+```
+
+10. We look around for a bit and see that /home folder contains file important.txt
+```bash
+   ls -l /home
+```
+When we cat important.txt, we can see that it wants us to run a script /.runme.sh
+```bash
+cat /home/important.txt
+```
+
+We don't want to run foreign scripts so we cat /.runme.sh
+```bash
+cat /.runme.sh
+```
+
+We see that this file contains an hash
+
+11. When we decode the hash (you can use any free online MD5 decoder), we get the string **youaresmart**
+    We assume that this is the password.
+
+12. We try to login to virtual machine with:
+    username: shrek
+	password: youaresmart
+	
+	It works :)
+
+13. We navigate to /var/www/html/files and run shell.py that we uploaded before:
+    ```bash
+    sudo python3.5 shell.py
+```
+That spawns a root shell for us.
+
+14. Now we navigate to /root and cat root.txt
+    This file contains the flag and the exercise is finished.
