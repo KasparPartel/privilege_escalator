@@ -90,3 +90,9 @@ That spawns a root shell for us.
 
 14. Now we navigate to /root and cat root.txt
     This file contains the flag and the exercise is finished.
+
+-------------------
+EXPLOITS
+
+Anonymous login on FTP server should'nt be allowed.
+Users shouldn't have access to execute python etc., as it could very easily be used to access root.
