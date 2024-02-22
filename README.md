@@ -1,6 +1,4 @@
 > [Project](https://github.com/01-edu/public/tree/master/subjects/cybersecurity/local)
-> [Audit](https://github.com/01-edu/public/tree/master/subjects/cybersecurity/local/audit)
-
 
 1. With nmap we scan for open hosts in 192.168.1.0, as this is the broadcast channel for our network:
 ```bash
